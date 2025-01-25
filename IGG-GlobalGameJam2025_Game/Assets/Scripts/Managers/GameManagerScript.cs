@@ -12,6 +12,12 @@ public class GameManagerScript : MonoBehaviour
     public int powerupsActiveAtOnce = 3;
     int powerupsSpawned;
 
+    public Transform player1;
+    public Transform player2;
+
+    public GameObject redWinPanel;
+    public GameObject yellowWinPanel;
+
     public Transform[] spawnPowerUps;
     public GameObject[] powerUps;
 
@@ -21,11 +27,25 @@ public class GameManagerScript : MonoBehaviour
     {
         powerupsSpawned = powerupsActiveAtOnce;
         spawnpowerupsnextafter = spawnPowerupsNextAfter;
+
+        player1 = GameObject.Find("Player1").GetComponent<Transform>();
+        player2 = GameObject.Find("Player2").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //victory panel
+        if(player1 == null)
+        {
+            yellowWinPanel.SetActive(true);
+        }
+        if(player2 == null)
+        {
+            redWinPanel.SetActive(true);
+        }
+
+        //powerups
         spawnPowerupsAfter--;
 
         if(spawnPowerupsAfter <= 0 && powerupsActiveAtOnce > 0)
