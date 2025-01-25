@@ -10,8 +10,13 @@ public class PlayerMoveScript : MonoBehaviour
     public string inputNameHorizontal;
     public string inputNameVertical;
 
-    public float inputHorizontal;
-    public float inputVertical;
+    float inputHorizontal;
+    float inputVertical;
+
+    public GameObject torpedo;
+    public Transform torpedoSpawn;
+
+    public bool isProtected = true;
 
     Transform player; 
     Rigidbody2D rb;
@@ -31,7 +36,10 @@ public class PlayerMoveScript : MonoBehaviour
 
         player.localRotation = Quaternion.Euler(0, 0, -inputHorizontal);
 
-
+        if (inputVertical != 0f)
+        {
+            LaunchTorpedo();
+        }
         
     }
 
@@ -39,5 +47,15 @@ public class PlayerMoveScript : MonoBehaviour
     {
         Vector2 moveDir = player.transform.up;
         rb.AddForce(moveDir * speed * 10, ForceMode2D.Force);
+    }
+
+    void LaunchTorpedo()
+    {
+        Instantiate(torpedo, torpedoSpawn.position, torpedoSpawn.rotation);
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }
