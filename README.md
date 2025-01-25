@@ -4,8 +4,11 @@ Idea 1 Bubble Blow:
 >Other bubbles can merge with your bubble making it big and hard to control
 >Powerups !!!!
 
-Idea 2 ???:
+Idea 2 Bubble Blast:
 >Goal: Eliminate other players
 >Pop enemy's bubble and then destroy the enemy's ship
 >Powerups !!!
 >Maps !!!
+
+Idea 3 ???:
+>
