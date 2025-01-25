@@ -5,13 +5,17 @@ using UnityEngine.EventSystems;
 
 public class PlayerMoveScript : MonoBehaviour
 {
+    public bool isPlayer1;
+
     public float speed = 5f;
+    public int ammoCount = 3;
+    int defaultAmmoCount;
+    public float reloadTime = 2f;
+    public bool isReloading = false;
 
     public string inputNameHorizontal;
-    public string inputNameVertical;
 
     float inputHorizontal;
-    float inputVertical;
 
     public GameObject torpedo;
     public Transform torpedoSpawn;
@@ -28,19 +32,30 @@ public class PlayerMoveScript : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         player = gameObject.GetComponent<Transform>();
+        defaultAmmoCount = ammoCount;
     }
 
     // Update is called once per frame
     void Update()
     {
         inputHorizontal += Input.GetAxis(inputNameHorizontal);
-        inputVertical = Input.GetAxis(inputNameVertical);
+        
 
         player.localRotation = Quaternion.Euler(0, 0, -inputHorizontal);
 
-        if (inputVertical != 0f)
+        if(isPlayer1 && Input.GetKeyDown(KeyCode.W) && ammoCount > 0 && isReloading == false)
         {
             LaunchTorpedo();
+        }
+        if(!isPlayer1 && Input.GetKeyDown(KeyCode.UpArrow) && ammoCount > 0 && isReloading == false)
+        {
+            LaunchTorpedo();
+            
+        }
+        
+        if(ammoCount <= 0)
+        {
+            StartCoroutine(Reload());
         }
 
         if (!isProtected)
@@ -56,9 +71,18 @@ public class PlayerMoveScript : MonoBehaviour
         rb.AddForce(moveDir * speed * 10, ForceMode2D.Force);
     }
 
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(reloadTime);
+        ammoCount = defaultAmmoCount;
+        isReloading = false;
+    }
+
     void LaunchTorpedo()
     {
         Instantiate(torpedo, torpedoSpawn.position, torpedoSpawn.rotation);
+        ammoCount -= 1;
     }
 
     public void Die()

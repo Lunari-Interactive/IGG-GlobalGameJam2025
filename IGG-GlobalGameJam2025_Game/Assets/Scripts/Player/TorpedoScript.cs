@@ -9,6 +9,8 @@ public class TorpedoScript : MonoBehaviour
 
     public int targetPlayer;
 
+    public GameObject particleEffect;
+
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -30,6 +32,7 @@ public class TorpedoScript : MonoBehaviour
         if(collision.gameObject.layer == targetPlayer && player != null && player.isProtected != true)
         {
             player.Die();
+            Instantiate(particleEffect, gameObject.transform.position, transform.rotation);
         }
         if(collision.gameObject.layer == 6)
         {
@@ -44,6 +47,8 @@ public class TorpedoScript : MonoBehaviour
 
     void Die()
     {
+        Instantiate(particleEffect, gameObject.transform.position, transform.rotation);
         Destroy(gameObject);
+        
     }
 }
