@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManagerScript : MonoBehaviour
@@ -39,10 +40,12 @@ public class GameManagerScript : MonoBehaviour
         if(player1 == null)
         {
             yellowWinPanel.SetActive(true);
+            redWinPanel.SetActive(false);
         }
         if(player2 == null)
         {
             redWinPanel.SetActive(true);
+            yellowWinPanel.SetActive(false);
         }
 
         //powerups
@@ -69,5 +72,15 @@ public class GameManagerScript : MonoBehaviour
 
         Transform randTransform = spawnPowerUps[Random.Range(0, spawnPowerUps.Length)];
         Instantiate(randPowerUp, randTransform);
+    }
+
+    public void QuitToMenu()
+    {
+        Debug.Log("Hans hasn't made the main menu yet but go visit my itch page pls");
+    }
+
+    public void Rematch()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
