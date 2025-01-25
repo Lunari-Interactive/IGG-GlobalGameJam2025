@@ -11,4 +11,6 @@ Idea 2 Bubble Blast:
 >Maps !!!
 
 Idea 3 ???:
->
+>Goal: Use Fan to move bubble to finish line
+>Maps !!
+>Levels !!!
