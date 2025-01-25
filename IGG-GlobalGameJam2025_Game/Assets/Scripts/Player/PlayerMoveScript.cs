@@ -18,6 +18,8 @@ public class PlayerMoveScript : MonoBehaviour
 
     public bool isProtected = true;
 
+
+    public Animator bubbleBurster;
     Transform player; 
     Rigidbody2D rb;
 
@@ -39,6 +41,11 @@ public class PlayerMoveScript : MonoBehaviour
         if (inputVertical != 0f)
         {
             LaunchTorpedo();
+        }
+
+        if (!isProtected)
+        {
+            bubbleBurster.SetBool("BubblePop", true);
         }
         
     }
