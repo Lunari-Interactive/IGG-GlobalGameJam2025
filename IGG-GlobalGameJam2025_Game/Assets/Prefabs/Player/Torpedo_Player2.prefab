@@ -297,5 +297,5 @@ MonoBehaviour:
   targetPlayer: 3
   particleEffect: {fileID: 2622580071976973149, guid: 9b6ace9d4a79f094cb1d9e9ad65605e0, type: 3}
   torpedoAudio: {fileID: 1045125051879292966}
-  torpedoExplosionClip: {fileID: 0}
+  torpedoExplosionClip: {fileID: 8300000, guid: 23438398045e8434ab19aa3c7e26ecf4, type: 3}
   torpedoMovingClip: {fileID: 0}

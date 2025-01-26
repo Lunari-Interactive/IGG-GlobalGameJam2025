@@ -45,6 +45,8 @@ public class GameManagerScript : MonoBehaviour
         if(player1 == null && player2 == null)
         {
             tiePanel.SetActive(true);
+            redWinPanel.SetActive(false);
+            yellowWinPanel.SetActive(false);
         }
 
         //powerups

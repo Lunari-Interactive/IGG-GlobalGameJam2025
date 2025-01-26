@@ -14,11 +14,11 @@ public class ProximityMinePowerUp : MonoBehaviour
         player = collision.gameObject.GetComponent<PlayerMoveScript>();
         if(player != null && collision.tag == "Player")
         {
-            player.isProtected = true;
+            player.equippedMine = true;
             powerUpAnimator.SetBool("isTaken", true);
-            AudioSource.clip = pickUpPowerUpClip;
-            AudioSource.Play();
+            AudioSource.PlayOneShot(pickUpPowerUpClip);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
 }

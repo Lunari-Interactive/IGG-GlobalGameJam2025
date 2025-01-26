@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpAnimator: {fileID: 1046526024543615737}
   AudioSource: {fileID: 6518158887121192942}
-  pickUpPowerUpClip: {fileID: 0}
+  pickUpPowerUpClip: {fileID: 8300000, guid: 051d9b85219ff85429934feb5b40e1d3, type: 3}
 --- !u!95 &1046526024543615737
 Animator:
   serializedVersion: 5

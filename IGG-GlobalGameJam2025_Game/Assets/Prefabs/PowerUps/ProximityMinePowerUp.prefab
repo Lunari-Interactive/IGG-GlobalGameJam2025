@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5369475745309794710}
   - component: {fileID: 175719214848743473}
   - component: {fileID: 1011041595529836606}
-  - component: {fileID: 8286258374207057640}
   - component: {fileID: 1046526024543615737}
+  - component: {fileID: 9051194307330993704}
   m_Layer: 0
   m_Name: ProximityMinePowerUp
   m_TagString: Untagged
@@ -151,21 +151,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &8286258374207057640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2431118686728667697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca22e8bbfef82e4aaf62027b423a9b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpAnimator: {fileID: 1046526024543615737}
-  AudioSource: {fileID: 6518158887121192942}
-  pickUpPowerUpClip: {fileID: 0}
 --- !u!95 &1046526024543615737
 Animator:
   serializedVersion: 5
@@ -187,6 +172,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9051194307330993704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431118686728667697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b7627c4a82e5c4b81fb822806b559b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpAnimator: {fileID: 1046526024543615737}
+  AudioSource: {fileID: 6518158887121192942}
+  pickUpPowerUpClip: {fileID: 8300000, guid: 051d9b85219ff85429934feb5b40e1d3, type: 3}
 --- !u!1 &6671295273716547350
 GameObject:
   m_ObjectHideFlags: 0

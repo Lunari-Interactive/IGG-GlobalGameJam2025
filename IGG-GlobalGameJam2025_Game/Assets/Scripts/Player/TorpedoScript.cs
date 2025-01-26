@@ -29,8 +29,7 @@ public class TorpedoScript : MonoBehaviour
     void Update()
     {
         rb.AddForce(gameObject.transform.up * speed, ForceMode2D.Force);
-        torpedoAudio.clip = torpedoMovingClip;
-        torpedoAudio.Play();
+        torpedoAudio.PlayOneShot(torpedoMovingClip);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,28 +40,21 @@ public class TorpedoScript : MonoBehaviour
             ExplosionExt.AddExplosionForce(rb, explosionForce, transform.position, explosionRadius, explosionForce);
             player.Die();
             Instantiate(particleEffect, gameObject.transform.position, transform.rotation);
-            torpedoAudio.clip = torpedoExplosionClip;
-            torpedoAudio.Play();
         }
         if(collision.gameObject.layer == 6)
         {
             Die();
-            torpedoAudio.clip = torpedoExplosionClip;
-            torpedoAudio.Play();
         }
     }
 
     void SelfDestruct()
     {
         Destroy(gameObject, lifeTime);
-        torpedoAudio.clip = torpedoExplosionClip;
-        torpedoAudio.Play();
     }
 
     void Die()
     {
         Instantiate(particleEffect, gameObject.transform.position, transform.rotation);
         Destroy(gameObject);
-        
     }
 }

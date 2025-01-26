@@ -10,8 +10,6 @@ public class ProximityMineScript : MonoBehaviour
     public bool exploded;
 
     public GameObject explosionParticles;
-    public AudioSource AudioSource;
-    public AudioClip explosionClip;
 
     private void Start()
     {
@@ -36,8 +34,6 @@ public class ProximityMineScript : MonoBehaviour
         if(collision.tag == "Player" && exploded)
         {
             Instantiate(explosionParticles, transform.position, transform.rotation);
-            AudioSource.clip = explosionClip;
-            AudioSource.Play();
             Destroy(collision.gameObject);
             Destroy(gameObject, 0.1f);
         }

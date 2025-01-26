@@ -5169,7 +5169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 9031124168714707746}
   bubbleAudioSource: {fileID: 8102362002565822848}
-  bubblePoppingClip: {fileID: 0}
+  bubblePoppingClip: {fileID: 8300000, guid: 051d9b85219ff85429934feb5b40e1d3, type: 3}
 --- !u!1 &9031124168714707746
 GameObject:
   m_ObjectHideFlags: 0

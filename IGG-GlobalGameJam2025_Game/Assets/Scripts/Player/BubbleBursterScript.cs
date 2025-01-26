@@ -22,8 +22,7 @@ public class BubbleBursterScript : MonoBehaviour
         {
             Destroy(parent);
             Destroy(collision.gameObject);
-            bubbleAudioSource.clip = bubblePoppingClip;
-            bubbleAudioSource.Play();
+            bubbleAudioSource.PlayOneShot(bubblePoppingClip);
         }
     }
 }
