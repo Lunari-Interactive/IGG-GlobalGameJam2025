@@ -22,8 +22,8 @@ public class GameManagerScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   
-
+    {
+        StartCoroutine(SpawnPowerUps());
         player1 = GameObject.Find("Player1").GetComponent<Transform>();
         player2 = GameObject.Find("Player2").GetComponent<Transform>();
     }
@@ -48,20 +48,25 @@ public class GameManagerScript : MonoBehaviour
         }
 
         //powerups
-        StartCoroutine(SpawnPowerUps());
+        
     }
 
     IEnumerator SpawnPowerUps()
     {
-        int randomPowerUp = Random.Range(0, powerUps.Length);
-        Transform pos = spawnPowerUps[Random.Range(0, spawnPowerUps.Length)];
+        while (true)
+        {
+            int randomPowerUp = Random.Range(0, powerUps.Length);
+            Transform pos = spawnPowerUps[Random.Range(0, spawnPowerUps.Length)];
+            Instantiate(powerUps[randomPowerUp], pos);
 
-        yield return new WaitForSeconds(spawnPowerupsAfter);
+            yield return new WaitForSeconds(spawnPowerupsAfter);
+        }
+        
     }
 
     public void QuitToMenu()
     {
-        Debug.Log("Hans hasn't made the main menu yet but go visit my itch page pls");
+        SceneManager.LoadScene(0);
     }
 
     public void Rematch()

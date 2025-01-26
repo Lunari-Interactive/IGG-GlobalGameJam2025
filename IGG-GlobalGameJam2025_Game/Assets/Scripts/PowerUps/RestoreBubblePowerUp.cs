@@ -6,6 +6,8 @@ public class RestoreBubblePowerUp : MonoBehaviour
 {
     PlayerMoveScript player;
     public Animator powerUpAnimator;
+    public AudioSource AudioSource;
+    public AudioClip pickUpPowerUpClip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,6 +16,8 @@ public class RestoreBubblePowerUp : MonoBehaviour
         {
             player.isProtected = true;
             powerUpAnimator.SetBool("isTaken", true);
+            AudioSource.clip = pickUpPowerUpClip;
+            AudioSource.Play();
         }
         Destroy(gameObject);
     }
