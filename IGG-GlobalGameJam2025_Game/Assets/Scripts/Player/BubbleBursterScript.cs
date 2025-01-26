@@ -16,6 +16,7 @@ public class BubbleBursterScript : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             Destroy(parent);
+            Destroy(collision.gameObject);
         }
     }
 }

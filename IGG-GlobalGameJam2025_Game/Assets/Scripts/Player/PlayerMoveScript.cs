@@ -14,7 +14,6 @@ public class PlayerMoveScript : MonoBehaviour
     public bool isReloading = false;
 
     public string inputNameHorizontal;
-
     float inputHorizontal;
 
     public GameObject torpedo;
@@ -61,6 +60,10 @@ public class PlayerMoveScript : MonoBehaviour
         if (!isProtected)
         {
             bubbleBurster.SetBool("BubblePop", true);
+        }
+        else
+        {
+            bubbleBurster.SetBool("BubblePop", false);
         }
         
     }

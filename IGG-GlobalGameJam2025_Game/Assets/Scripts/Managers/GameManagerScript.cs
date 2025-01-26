@@ -8,26 +8,21 @@ public class GameManagerScript : MonoBehaviour
 {
     public float spawnPowerupsAfter = 10f;
 
-    public float spawnPowerupsNextAfter = 30f;
-    float spawnpowerupsnextafter;
-    public int powerupsActiveAtOnce = 3;
-    int powerupsSpawned;
-
     public Transform player1;
     public Transform player2;
 
     public GameObject redWinPanel;
     public GameObject yellowWinPanel;
+    public GameObject tiePanel;
 
     public Transform[] spawnPowerUps;
+
     public GameObject[] powerUps;
 
 
     // Start is called before the first frame update
     void Start()
-    {
-        powerupsSpawned = powerupsActiveAtOnce;
-        spawnpowerupsnextafter = spawnPowerupsNextAfter;
+    {   
 
         player1 = GameObject.Find("Player1").GetComponent<Transform>();
         player2 = GameObject.Find("Player2").GetComponent<Transform>();
@@ -47,31 +42,21 @@ public class GameManagerScript : MonoBehaviour
             redWinPanel.SetActive(true);
             yellowWinPanel.SetActive(false);
         }
+        if(player1 == null && player2 == null)
+        {
+            tiePanel.SetActive(true);
+        }
 
         //powerups
-        spawnPowerupsAfter--;
-
-        if(spawnPowerupsAfter <= 0 && powerupsActiveAtOnce > 0)
-        {
-            SpawnPowerups();
-            powerupsActiveAtOnce--;
-        }
-        if(spawnPowerupsAfter >= 0) { spawnPowerupsNextAfter--; }
-        if (spawnPowerupsNextAfter <= 0 && powerupsActiveAtOnce > 0)
-        {
-            SpawnPowerups();
-            powerupsActiveAtOnce--;
-            spawnPowerupsNextAfter = spawnpowerupsnextafter;
-        }
-        if (powerupsActiveAtOnce >= 0) { powerupsActiveAtOnce = 3; }
+        StartCoroutine(SpawnPowerUps());
     }
 
-    void SpawnPowerups()
+    IEnumerator SpawnPowerUps()
     {
-        GameObject randPowerUp = powerUps[Random.Range(0,powerUps.Length)];
+        int randomPowerUp = Random.Range(0, powerUps.Length);
+        Transform pos = spawnPowerUps[Random.Range(0, spawnPowerUps.Length)];
 
-        Transform randTransform = spawnPowerUps[Random.Range(0, spawnPowerUps.Length)];
-        Instantiate(randPowerUp, randTransform);
+        yield return new WaitForSeconds(spawnPowerupsAfter);
     }
 
     public void QuitToMenu()

@@ -6,6 +6,8 @@ public class TorpedoScript : MonoBehaviour
 {
     public float speed = 0.095f;
     public float lifeTime = 50f;
+    public float explosionForce = 100f;
+    public float explosionRadius = 10f;
 
     public int targetPlayer;
 
@@ -31,6 +33,7 @@ public class TorpedoScript : MonoBehaviour
         PlayerMoveScript player = collision.gameObject.GetComponent<PlayerMoveScript>();
         if(collision.gameObject.layer == targetPlayer && player != null && player.isProtected != true)
         {
+            ExplosionExt.AddExplosionForce(rb, explosionForce, transform.position, explosionRadius, explosionForce);
             player.Die();
             Instantiate(particleEffect, gameObject.transform.position, transform.rotation);
         }
