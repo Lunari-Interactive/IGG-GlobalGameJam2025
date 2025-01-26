@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
+using UnityEngine.Audio;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class GameManagerScript : MonoBehaviour
     public Transform[] spawnPowerUps;
 
     public GameObject[] powerUps;
+
+    public AudioClip[] gameMusic;
+    public AudioSource musicPlayer;
 
 
     // Start is called before the first frame update
@@ -48,9 +52,14 @@ public class GameManagerScript : MonoBehaviour
             redWinPanel.SetActive(false);
             yellowWinPanel.SetActive(false);
         }
-
-        //powerups
         
+        if(musicPlayer.isPlaying != true)
+        {
+            int randomMusic = Random.Range(0, gameMusic.Length);
+            musicPlayer.clip = gameMusic[randomMusic];
+            musicPlayer.Play();
+        }
+
     }
 
     IEnumerator SpawnPowerUps()

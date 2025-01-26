@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class PlayerMoveScript : MonoBehaviour
 {
     public bool isPlayer1;
+    public bool isPaused;
+    public GameObject pausePanel;
 
     public float speed = 5f;
     public int ammoCount = 3;
@@ -43,7 +45,22 @@ public class PlayerMoveScript : MonoBehaviour
 
         player.localRotation = Quaternion.Euler(0, 0, -inputHorizontal);
 
-        if(isPlayer1 && Input.GetKeyDown(KeyCode.W) && ammoCount > 0 && isReloading == false)
+        /*if (Input.GetKey(KeyCode.P) && !isPaused)
+        {
+            Debug.Log("isPaused");
+            isPaused = true;
+            pausePanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        if (Input.GetKey(KeyCode.P) && isPaused)
+        {
+            Debug.Log("isUnPaused");
+            isPaused = false;
+            pausePanel.SetActive(false);
+            Time.timeScale = 1f;
+        }*/
+
+        if (isPlayer1 && Input.GetKeyDown(KeyCode.W) && ammoCount > 0 && isReloading == false)
         {
             LaunchTorpedo();
         }
@@ -81,8 +98,15 @@ public class PlayerMoveScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 moveDir = player.transform.up;
-        rb.AddForce(moveDir * speed * 10, ForceMode2D.Force);
+        if (!isPaused)
+        {
+            Vector2 moveDir = player.transform.up;
+            rb.AddForce(moveDir * speed * 10, ForceMode2D.Force);
+        }
+        else
+        {
+            rb.velocity = new Vector2 (0, 0);
+        }
     }
 
     IEnumerator Reload()
