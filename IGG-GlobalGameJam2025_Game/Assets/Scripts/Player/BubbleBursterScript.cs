@@ -6,6 +6,8 @@ using UnityEngine;
 public class BubbleBursterScript : MonoBehaviour
 {
     public GameObject parent;
+
+    public GameObject explosion;
     public AudioSource bubbleAudioSource;
     public AudioClip bubblePoppingClip;
 
@@ -20,6 +22,7 @@ public class BubbleBursterScript : MonoBehaviour
         }
         if (collision.gameObject.layer == 8)
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(parent);
             Destroy(collision.gameObject);
             bubbleAudioSource.PlayOneShot(bubblePoppingClip);

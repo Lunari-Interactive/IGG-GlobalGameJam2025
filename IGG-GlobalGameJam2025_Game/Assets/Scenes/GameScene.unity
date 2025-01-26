@@ -3397,6 +3397,7 @@ MonoBehaviour:
   powerUps:
   - {fileID: 2431118686728667697, guid: 0605f7392145bfb44a355a50311ebfe6, type: 3}
   - {fileID: 2431118686728667697, guid: 148d2be3f24fa684f9edef8c643958c9, type: 3}
+  - {fileID: 48037104482698104, guid: a7536eb1d85818b4787412804427c7d4, type: 3}
   gameMusic:
   - {fileID: 8300000, guid: 039f3f1eb1980694cb73023a1661ab0c, type: 3}
   - {fileID: 8300000, guid: cef1677b107920a489fb8f9c3cdcc10d, type: 3}
@@ -5707,6 +5708,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7916874434276419018, guid: 376164529e1b6d5458e10a13b752de0f, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 2622580071976973149, guid: 9b6ace9d4a79f094cb1d9e9ad65605e0, type: 3}
     - target: {fileID: 8792219442921772503, guid: 376164529e1b6d5458e10a13b752de0f, type: 3}
       propertyPath: pausePanel
       value: 
@@ -5850,6 +5855,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1474846801159729508, guid: 5ef792e8a1d3a7a4884cf0002a196493, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 2622580071976973149, guid: 9b6ace9d4a79f094cb1d9e9ad65605e0, type: 3}
     - target: {fileID: 5964218012245644270, guid: 5ef792e8a1d3a7a4884cf0002a196493, type: 3}
       propertyPath: m_Layer
       value: 3
