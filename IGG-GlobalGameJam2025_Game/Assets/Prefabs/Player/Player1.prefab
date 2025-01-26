@@ -41,7 +41,7 @@ AudioSource:
   m_GameObject: {fileID: 2306923982449648597}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 09391750cf199934aa051da2b17c57f3, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5344,4 +5344,6 @@ MonoBehaviour:
   torpedo: {fileID: 7159876307710620649, guid: 5576361e101bbfc4e89a84c95c9003c5, type: 3}
   torpedoSpawn: {fileID: 5261841493822200185}
   isProtected: 1
+  equippedMine: 0
+  proximityMine: {fileID: 6165682976567112231, guid: 4309344b9f2b9d74ea8dab25763da2b0, type: 3}
   bubbleBurster: {fileID: 8887405811908338743}
