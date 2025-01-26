@@ -17,7 +17,7 @@ public class RestoreBubblePowerUp : MonoBehaviour
             player.isProtected = true;
             powerUpAnimator.SetBool("isTaken", true);
             AudioSource.PlayOneShot(pickUpPowerUpClip);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.2f);
         }
         
     }
