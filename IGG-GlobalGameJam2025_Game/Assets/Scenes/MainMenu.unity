@@ -2382,8 +2382,10 @@ MonoBehaviour:
   mainMenu: {fileID: 1376189698}
   credits: {fileID: 205003971}
   mainMenuMusic:
-  - {fileID: 8300000, guid: 869d1cc5802d1184abb314518be6866c, type: 3}
   - {fileID: 8300000, guid: 80c35f257a3bb7047b0c16f1028bd6c5, type: 3}
+  - {fileID: 8300000, guid: 869d1cc5802d1184abb314518be6866c, type: 3}
+  - {fileID: 8300000, guid: 77a33c16015706847b67bd165e1b5575, type: 3}
+  - {fileID: 8300000, guid: 77a33c16015706847b67bd165e1b5575, type: 3}
   AudioSource: {fileID: 1638621268}
 --- !u!4 &1904003121
 Transform:
