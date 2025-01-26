@@ -13,6 +13,20 @@ public class MainMenuManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject credits;
 
+    public AudioClip[] mainMenuMusic;
+    public AudioSource AudioSource;
+
+    private void Update()
+    {
+        if(AudioSource.isPlaying != true)
+        {
+            int randomMusic = Random.Range(0, mainMenuMusic.Length);
+            AudioSource.clip = mainMenuMusic[randomMusic];
+            AudioSource.Play();
+        }
+        
+    }
+
     public void Volume(float volume)
     {
         AudioMixer.SetFloat("volume", volume);
