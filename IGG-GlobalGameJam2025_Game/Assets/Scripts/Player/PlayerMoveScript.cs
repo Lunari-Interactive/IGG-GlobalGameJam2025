@@ -20,7 +20,8 @@ public class PlayerMoveScript : MonoBehaviour
     public Transform torpedoSpawn;
 
     public bool isProtected = true;
-
+    public bool equippedMine = false;
+    public GameObject proximityMine;
 
     public Animator bubbleBurster;
     Transform player; 
@@ -51,8 +52,18 @@ public class PlayerMoveScript : MonoBehaviour
             LaunchTorpedo();
             
         }
-        
-        if(ammoCount <= 0)
+        if (isPlayer1 && Input.GetKeyDown(KeyCode.W) && ammoCount > 0 && equippedMine == true)
+        {
+            SpawnMine();
+            equippedMine=false;
+        }
+        if (!isPlayer1 && Input.GetKeyDown(KeyCode.UpArrow) && ammoCount > 0 && equippedMine == true)
+        {
+            SpawnMine();
+            equippedMine = false;
+        }
+
+        if (ammoCount <= 0)
         {
             StartCoroutine(Reload());
         }
@@ -82,6 +93,10 @@ public class PlayerMoveScript : MonoBehaviour
         isReloading = false;
     }
 
+    void SpawnMine()
+    {
+        Instantiate(proximityMine, transform.position, transform.rotation);
+    }
     void LaunchTorpedo()
     {
         Instantiate(torpedo, torpedoSpawn.position, torpedoSpawn.rotation);

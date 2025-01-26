@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8286258374207057640}
   - component: {fileID: 1046526024543615737}
   m_Layer: 0
-  m_Name: RestoreBubblePowerUp
+  m_Name: ProximityMinePowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

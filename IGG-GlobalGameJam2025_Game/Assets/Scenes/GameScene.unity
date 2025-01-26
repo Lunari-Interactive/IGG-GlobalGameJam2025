@@ -6382,6 +6382,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6502110369910509033, guid: 5ef792e8a1d3a7a4884cf0002a196493, type: 3}
+      propertyPath: equippedMine
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502110369910509033, guid: 5ef792e8a1d3a7a4884cf0002a196493, type: 3}
       propertyPath: inputNameFire
       value: Fire1
       objectReference: {fileID: 0}
